@@ -9,7 +9,7 @@ const Footer = () => {
       <h1 className="flex justify-center items-center gap-2 pb-2 truncate">
         <span>Made by</span>
         <span className="text-xl font-medium tracking-tight truncate transition-colors dark:text-zinc-50">
-          @Manoj N
+          @
         </span>
       </h1>
       <div className="sm:ml-auto flex items-center justify-center gap-2 ">
