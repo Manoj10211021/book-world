@@ -112,7 +112,3 @@ node index.js
 ```
 
 Now open `localhost:5173` on your browser
-
-## License
-
-## Screenshots
