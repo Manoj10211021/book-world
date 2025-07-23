@@ -13,7 +13,10 @@ const Footer = () => {
         </span>
       </h1>
       <div className="sm:ml-auto flex items-center justify-center gap-2 ">
-        <Link to="" target="_blank">
+        <Link
+          to="https://www.linkedin.com/in/manoj-n-438310277/"
+          target="_blank"
+        >
           <Button variant="outline" size="icon">
             <FaLinkedinIn className="h-6 w-6" />
             <span className="sr-only">Linkedin</span>
