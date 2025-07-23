@@ -28,7 +28,7 @@ const Footer = () => {
             <span className="sr-only">Github</span>
           </Button>
         </Link>
-        <Link to="book add auth" target="_blank">
+        <Link to="https://leetcode.com/u/manoj_1021/" target="_blank">
           <Button variant="outline" size="icon">
             <SiLeetcode className="h-6 w-6" />
             <span className="sr-only">Leetcode</span>
