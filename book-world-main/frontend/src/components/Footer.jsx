@@ -34,7 +34,7 @@ const Footer = () => {
             <span className="sr-only">Leetcode</span>
           </Button>
         </Link>
-        <Link to="https://www.codechef.com/users/manoj_1021" target="_blank">
+        <Link to="" target="_blank">
           <Button variant="outline" size="icon">
             <SiCodechef className="h-6 w-6" />
             <span className="sr-only">Codechef</span>
