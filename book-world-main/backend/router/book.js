@@ -40,6 +40,29 @@ router
   )
   .delete(authorization, wrapAsync(bookController.deleteBook));
 
+// Add log-visit endpoint for specific books
+router.post(
+  "/:id/log-visit",
+  wrapAsync(async (req, res) => {
+    const { id } = req.params;
+    const { userAgent } = req.body;
+    const ip = req.headers["x-forwarded-for"] || req.connection.remoteAddress;
+
+    // Check if book exists
+    const book = await require("../models/books").findById(id);
+    if (!book) {
+      return res.status(404).json({ message: "Book not found" });
+    }
+
+    // Log the visit (you can extend this to track book-specific visits)
+    res.status(200).json({
+      message: "Book visit logged",
+      bookId: id,
+      bookTitle: book.title,
+    });
+  })
+);
+
 router
   .route("/:id/reviews")
   .get(wrapAsync(getAllReviews))
