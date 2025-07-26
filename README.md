@@ -1,5 +1,3 @@
-![Homepage](https://github.com/NEET64/book-world/assets/67575976/f1c41565-9ad9-47d5-86b3-60e95f4f9215)
-
 # Book World
 
 A full-featured book review and management application built with the MERN stack (`MongoDB`, `Express`, `React`, `Node.js`). Users can browse books, leave reviews with star ratings, and manage their favorites. Admins have extended capabilities for adding, editing, and deleting books, as well as managing user data and access.
