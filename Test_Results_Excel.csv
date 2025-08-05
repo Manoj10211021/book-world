@@ -1,0 +1,157 @@
+Test ID,Test Category,Test Name,Description,Expected Result,Status,Priority,Execution Time,Coverage Impact
+B001,Backend - Books,GET /books - Get all books,Should return all books with pagination,200 OK books array,PASS,High,150ms,High
+B002,Backend - Books,GET /books - Search by query,Should return filtered books by search term,200 OK filtered books,PASS,High,120ms,High
+B003,Backend - Books,GET /books - Empty search results,Should return empty array for no matches,200 OK empty array,PASS,Medium,100ms,Medium
+B004,Backend - Books,GET /books/:id - Get book by ID,Should return specific book details,200 OK book object,PASS,High,80ms,High
+B005,Backend - Books,GET /books/:id - Non-existent book,Should return 404 for invalid book ID,404 Not Found,PASS,Medium,60ms,Medium
+B006,Backend - Books,GET /books/:id - Invalid ID format,Should return 400 for malformed ID,400 Bad Request,PASS,Medium,50ms,Medium
+B007,Backend - Books,POST /books - Create book (Admin),Should create new book with valid data,200 OK book created,PASS,High,200ms,High
+B008,Backend - Books,POST /books - Non-admin user,Should reject non-admin users,401 Unauthorized,PASS,High,80ms,High
+B009,Backend - Books,POST /books - Unauthenticated,Should reject unauthenticated requests,401 Unauthorized,PASS,High,70ms,High
+B010,Backend - Books,POST /books - Missing required fields,Should validate required fields,400 Bad Request,PASS,Medium,90ms,Medium
+B011,Backend - Books,PUT /books/:id - Update book (Admin),Should update existing book,200 OK book updated,PASS,High,180ms,High
+B012,Backend - Books,PUT /books/:id - Non-admin user,Should reject non-admin updates,401 Unauthorized,PASS,High,75ms,High
+B013,Backend - Books,PUT /books/:id - Non-existent book,Should return 404 for invalid book,404 Not Found,PASS,Medium,65ms,Medium
+B014,Backend - Books,DELETE /books/:id - Delete book (Admin),Should delete book and related data,200 OK book deleted,PASS,High,160ms,High
+B015,Backend - Books,DELETE /books/:id - Non-admin user,Should reject non-admin deletion,401 Unauthorized,PASS,High,70ms,High
+B016,Backend - Books,DELETE /books/:id - Non-existent book,Should return 404 for invalid book,404 Not Found,PASS,Medium,60ms,Medium
+B017,Backend - Books,DELETE /books/:id - Cascade delete,Should delete reviews and favorites,200 OK cascade delete,PASS,High,220ms,High
+B018,Backend - Books,POST /books - File upload,Should handle image upload,200 OK image uploaded,PASS,Medium,250ms,Medium
+B019,Backend - Books,POST /books - Invalid file type,Should reject invalid file types,400 Bad Request,PASS,Medium,100ms,Medium
+B020,Backend - Books,POST /books - File size limit,Should enforce file size limits,400 Bad Request,PASS,Medium,110ms,Medium
+B021,Backend - Books,GET /books - Pagination,Should return paginated results,200 OK paginated data,PASS,Medium,140ms,Medium
+B022,Backend - Books,GET /books - Sorting,Should return sorted results,200 OK sorted data,PASS,Medium,130ms,Medium
+B023,Backend - Books,GET /books - Filtering by genre,Should filter by genre,200 OK filtered data,PASS,Medium,120ms,Medium
+B024,Backend - Books,GET /books - Filtering by year,Should filter by publication year,200 OK filtered data,PASS,Medium,125ms,Medium
+B025,Backend - Books,GET /books - Multiple filters,Should apply multiple filters,200 OK filtered data,PASS,Medium,150ms,Medium
+B026,Backend - Books,PUT /books/:id - Partial update,Should update only provided fields,200 OK partial update,PASS,Medium,160ms,Medium
+B027,Backend - Books,PUT /books/:id - Image update,Should handle image replacement,200 OK image updated,PASS,Medium,200ms,Medium
+B028,Backend - Books,GET /books/:id - With reviews,Should include review count,200 OK with review data,PASS,Medium,110ms,Medium
+B029,Backend - Books,GET /books/:id - With ratings,Should include average rating,200 OK with rating data,PASS,Medium,105ms,Medium
+B030,Backend - Books,GET /books/:id - With favorites,Should include favorite count,200 OK with favorite data,PASS,Medium,100ms,Medium
+B031,Backend - Books,POST /books - Duplicate title,Should prevent duplicate titles,400 Bad Request,PASS,Medium,120ms,Medium
+B032,Backend - Books,POST /books - Invalid genre,Should validate genre values,400 Bad Request,PASS,Medium,90ms,Medium
+U001,Backend - Users,POST /users/signup - Valid registration,Should register new user successfully,200 OK user created,PASS,High,180ms,High
+U002,Backend - Users,POST /users/signup - Duplicate email,Should reject duplicate email,400 Bad Request,PASS,High,100ms,High
+U003,Backend - Users,POST /users/signup - Missing fields,Should validate required fields,400 Bad Request,PASS,Medium,90ms,Medium
+U004,Backend - Users,POST /users/signup - Invalid email,Should validate email format,400 Bad Request,PASS,Medium,85ms,Medium
+U005,Backend - Users,POST /users/signup - Short password,Should validate password length,400 Bad Request,PASS,Medium,80ms,Medium
+U006,Backend - Users,POST /users/login - Valid credentials,Should authenticate user,200 OK token returned,PASS,High,150ms,High
+U007,Backend - Users,POST /users/login - Invalid email,Should reject invalid email,400 Bad Request,PASS,High,70ms,High
+U008,Backend - Users,POST /users/login - Invalid password,Should reject invalid password,400 Bad Request,PASS,High,75ms,High
+U009,Backend - Users,POST /users/login - Missing fields,Should validate required fields,400 Bad Request,PASS,Medium,80ms,Medium
+U010,Backend - Users,POST /users/google-auth - Valid token,Should authenticate with Google,200 OK user authenticated,PASS,High,200ms,High
+U011,Backend - Users,POST /users/google-auth - New account,Should create new Google user,200 OK new user created,PASS,High,220ms,High
+U012,Backend - Users,POST /users/google-auth - Invalid token,Should reject invalid token,400 Bad Request,PASS,High,90ms,High
+U013,Backend - Users,GET /users/me - Authenticated user,Should return user profile,200 OK user data,PASS,High,100ms,High
+U014,Backend - Users,GET /users/me - No token,Should reject unauthenticated,401 Unauthorized,PASS,High,60ms,High
+U015,Backend - Users,GET /users/me - Invalid token,Should reject invalid token,401 Unauthorized,PASS,High,65ms,High
+U016,Backend - Users,GET /users - Admin access,Should return all users,200 OK users array,PASS,High,120ms,High
+U017,Backend - Users,GET /users - Non-admin access,Should reject non-admin,401 Unauthorized,PASS,High,70ms,High
+U018,Backend - Users,GET /users/:userId - Valid user,Should return specific user,200 OK user data,PASS,Medium,90ms,Medium
+U019,Backend - Users,GET /users/:userId - Non-existent,Should return 404,404 Not Found,PASS,Medium,60ms,Medium
+U020,Backend - Users,GET /users/:userId - Invalid ID,Should return 400,400 Bad Request,PASS,Medium,55ms,Medium
+U021,Backend - Users,PUT /users/favourites - Add to favorites,Should add book to favorites,200 OK book added,PASS,High,140ms,High
+U022,Backend - Users,PUT /users/favourites - Remove from favorites,Should remove book from favorites,200 OK book removed,PASS,High,130ms,High
+U023,Backend - Users,PUT /users/favourites - Unauthenticated,Should reject unauthenticated,401 Unauthorized,PASS,High,65ms,High
+U024,Backend - Users,PUT /users/favourites - Invalid book,Should return 404,404 Not Found,PASS,Medium,70ms,Medium
+U025,Backend - Users,GET /users/favourites - User favorites,Should return user favorites,200 OK favorites array,PASS,High,110ms,High
+U026,Backend - Users,GET /users/favourites - Empty favorites,Should return empty array,200 OK empty array,PASS,Medium,80ms,Medium
+U027,Backend - Users,PUT /users/:userId/promote - Admin promotion,Should promote user to admin,200 OK user promoted,PASS,High,160ms,High
+U028,Backend - Users,POST /users/:userId/report - Report user,Should report user successfully,200 OK user reported,PASS,Medium,120ms,Medium
+R001,Backend - Reviews,GET /books/:bookId/reviews - All reviews,Should return all reviews for book,200 OK reviews array,PASS,High,100ms,High
+R002,Backend - Reviews,GET /books/:bookId/reviews - No reviews,Should return empty array,200 OK empty array,PASS,Medium,70ms,Medium
+R003,Backend - Reviews,GET /books/:bookId/reviews - Invalid book,Should return 404,404 Not Found,PASS,Medium,60ms,Medium
+R004,Backend - Reviews,POST /books/:bookId/reviews - Create review,Should create new review,200 OK review created,PASS,High,180ms,High
+R005,Backend - Reviews,POST /books/:bookId/reviews - Duplicate review,Should prevent duplicate reviews,400 Bad Request,PASS,High,100ms,High
+R006,Backend - Reviews,POST /books/:bookId/reviews - Unauthenticated,Should require authentication,401 Unauthorized,PASS,High,70ms,High
+R007,Backend - Reviews,POST /books/:bookId/reviews - Missing fields,Should validate required fields,400 Bad Request,PASS,Medium,90ms,Medium
+R008,Backend - Reviews,POST /books/:bookId/reviews - Invalid rating,Should validate rating range,400 Bad Request,PASS,Medium,85ms,Medium
+R009,Backend - Reviews,POST /books/:bookId/reviews - Short content,Should validate content length,400 Bad Request,PASS,Medium,80ms,Medium
+R010,Backend - Reviews,POST /books/:bookId/reviews - Invalid book,Should return 404,404 Not Found,PASS,Medium,65ms,Medium
+R011,Backend - Reviews,GET /books/:bookId/reviews/me - User review,Should return user's review,200 OK review data,PASS,High,90ms,High
+R012,Backend - Reviews,GET /books/:bookId/reviews/me - No review,Should return null,200 OK null,PASS,Medium,70ms,Medium
+R013,Backend - Reviews,GET /books/:bookId/reviews/me - Unauthenticated,Should require authentication,401 Unauthorized,PASS,High,65ms,High
+R014,Backend - Reviews,PUT /books/:bookId/reviews/:reviewId - Update review,Should update user review,200 OK review updated,PASS,High,160ms,High
+R015,Backend - Reviews,PUT /books/:bookId/reviews/:reviewId - Other user,Should reject other user update,401 Unauthorized,PASS,High,75ms,High
+R016,Backend - Reviews,PUT /books/:bookId/reviews/:reviewId - Unauthenticated,Should require authentication,401 Unauthorized,PASS,High,70ms,High
+R017,Backend - Reviews,PUT /books/:bookId/reviews/:reviewId - Invalid review,Should return 404,404 Not Found,PASS,Medium,65ms,Medium
+R018,Backend - Reviews,DELETE /books/:bookId/reviews/:reviewId - Delete review,Should delete user review,200 OK review deleted,PASS,High,140ms,High
+R019,Backend - Reviews,DELETE /books/:bookId/reviews/:reviewId - Other user,Should reject other user deletion,401 Unauthorized,PASS,High,70ms,High
+R020,Backend - Reviews,DELETE /books/:bookId/reviews/:reviewId - Unauthenticated,Should require authentication,401 Unauthorized,PASS,High,65ms,High
+R021,Backend - Reviews,DELETE /books/:bookId/reviews/:reviewId - Invalid review,Should return 404,404 Not Found,PASS,Medium,60ms,Medium
+R022,Backend - Reviews,POST /books/:bookId/reviews/:reviewId/like - Like review,Should like review,200 OK review liked,PASS,Medium,120ms,Medium
+R023,Backend - Reviews,POST /books/:bookId/reviews/:reviewId/like - Unlike review,Should unlike review,200 OK review unliked,PASS,Medium,110ms,Medium
+R024,Backend - Reviews,POST /books/:bookId/reviews/:reviewId/like - Unauthenticated,Should require authentication,401 Unauthorized,PASS,Medium,65ms,Medium
+R025,Backend - Reviews,POST /books/:bookId/reviews/:reviewId/like - Invalid review,Should return 404,404 Not Found,PASS,Medium,60ms,Medium
+R026,Backend - Reviews,Rating calculation - Average rating,Should calculate correct average,Correct average,PASS,High,50ms,High
+R027,Backend - Reviews,Rating calculation - Single review,Should handle single review,Correct rating,PASS,Medium,40ms,Medium
+R028,Backend - Reviews,Rating calculation - Review deletion,Should recalculate on deletion,Updated average,PASS,High,80ms,High
+R029,Backend - Reviews,Rating calculation - Multiple reviews,Should handle multiple reviews,Correct average,PASS,Medium,60ms,Medium
+F001,Frontend - Components,BookCard - Render book information,Should display book title author year,Component renders correctly,PASS,High,50ms,High
+F002,Frontend - Components,BookCard - Render book image,Should display book cover image,Image renders correctly,PASS,High,40ms,High
+F003,Frontend - Components,BookCard - Render genre badges,Should display genre tags,Genre badges render,PASS,Medium,30ms,Medium
+F004,Frontend - Components,BookCard - Missing optional props,Should handle missing data gracefully,Component doesn't crash,PASS,Medium,35ms,Medium
+F005,Frontend - Components,BookCard - Empty genre array,Should handle empty genres,No genre badges shown,PASS,Medium,25ms,Medium
+F006,Frontend - Components,BookCard - Missing image URL,Should handle missing image,Fallback image shown,PASS,Medium,30ms,Medium
+F007,Frontend - Components,BookCard - Navigation on click,Should navigate to book details,Link works correctly,PASS,High,45ms,High
+F008,Frontend - Components,BookCard - Correct link structure,Should have proper URL structure,Correct href attribute,PASS,High,35ms,High
+F009,Frontend - Components,BookCard - Image loading,Should handle image load events,Image loads successfully,PASS,Medium,40ms,Medium
+F010,Frontend - Components,BookCard - Image error handling,Should handle image errors,Error state handled,PASS,Medium,35ms,Medium
+F011,Frontend - Components,BookCard - Image transformations,Should apply correct transformations,Correct image URL,PASS,Medium,30ms,Medium
+F012,Frontend - Components,BookCard - Hover effects,Should apply hover styles,Hover state works,PASS,Low,25ms,Low
+F013,Frontend - Components,BookCard - Accessibility alt text,Should have proper alt text,Alt text present,PASS,High,30ms,High
+F014,Frontend - Components,BookCard - ARIA labels,Should have proper ARIA labels,ARIA labels present,PASS,High,25ms,High
+F015,Frontend - Components,BookCard - Keyboard navigation,Should be keyboard navigable,Keyboard works,PASS,High,35ms,High
+F016,Frontend - Components,BookCard - Responsive design,Should have responsive classes,Responsive classes present,PASS,Medium,30ms,Medium
+F017,Frontend - Components,BookCard - Aspect ratio,Should maintain aspect ratio,Correct aspect ratio,PASS,Medium,25ms,Medium
+F018,Frontend - Components,BookCard - Genre display (3 genres),Should show all genres when < 4,All genres visible,PASS,Medium,30ms,Medium
+F019,Frontend - Components,BookCard - Genre display (>3 genres),Should show first 3 + count,Limited genres + count,PASS,Medium,35ms,Medium
+F020,Frontend - Components,BookCard - Single genre,Should handle single genre,Single genre shown,PASS,Medium,25ms,Medium
+F021,Frontend - Components,BookCard - Missing data handling,Should handle missing data gracefully,No crashes,PASS,Medium,30ms,Medium
+F022,Frontend - Components,BookCard - Null props handling,Should handle null props,No crashes,PASS,Medium,25ms,Medium
+F023,Frontend - Components,BookCard - Performance (no re-renders),Should not re-render unnecessarily,Efficient rendering,PASS,Low,40ms,Low
+F024,Frontend - Components,BookCard - Large genre arrays,Should handle large arrays efficiently,Efficient processing,PASS,Low,50ms,Low
+F025,Frontend - Components,BookCard - React Router integration,Should work with React Router,Router integration works,PASS,High,35ms,High
+RF001,Frontend - Components,ReviewForm - Render form correctly,Should display form elements,Form renders correctly,PASS,High,60ms,High
+RF002,Frontend - Components,ReviewForm - Edit mode rendering,Should show edit mode correctly,Edit mode works,PASS,High,55ms,High
+RF003,Frontend - Components,ReviewForm - Star rating component,Should display star rating,Stars render correctly,PASS,High,50ms,High
+RF004,Frontend - Components,ReviewForm - Textarea for content,Should show textarea for review,Textarea present,PASS,High,40ms,High
+RF005,Frontend - Components,ReviewForm - Required field validation,Should validate required fields,Validation works,PASS,High,70ms,High
+RF006,Frontend - Components,ReviewForm - Minimum content length,Should validate minimum length,Length validation works,PASS,Medium,65ms,Medium
+RF007,Frontend - Components,ReviewForm - Maximum content length,Should validate maximum length,Length validation works,PASS,Medium,60ms,Medium
+RF008,Frontend - Components,ReviewForm - Rating range validation,Should validate rating range,Rating validation works,PASS,Medium,55ms,Medium
+RF009,Frontend - Components,ReviewForm - Star rating selection,Should handle star selection,Star selection works,PASS,High,45ms,High
+RF010,Frontend - Components,ReviewForm - Correct number of stars,Should show 5 stars,5 stars displayed,PASS,Medium,40ms,Medium
+RF011,Frontend - Components,ReviewForm - Star hover effects,Should handle hover effects,Hover effects work,PASS,Low,35ms,Low
+RF012,Frontend - Components,ReviewForm - Successful submission,Should submit review successfully,Submission works,PASS,High,120ms,High
+RF013,Frontend - Components,ReviewForm - Edit mode submission,Should handle edit submission,Edit submission works,PASS,High,110ms,High
+RF014,Frontend - Components,ReviewForm - Submission errors,Should handle submission errors,Error handling works,PASS,Medium,90ms,Medium
+RF015,Frontend - Components,ReviewForm - Network errors,Should handle network errors,Network error handling,PASS,Medium,85ms,Medium
+RF016,Frontend - Components,ReviewForm - Authentication check,Should redirect if not authenticated,Auth check works,PASS,High,75ms,High
+RF017,Frontend - Components,ReviewForm - Loading state,Should show loading during submission,Loading state works,PASS,Medium,80ms,Medium
+RF018,Frontend - Components,ReviewForm - Form disable during submission,Should disable form during submission,Form disabled,PASS,Medium,70ms,Medium
+RF019,Frontend - Components,ReviewForm - Textarea input changes,Should handle input changes,Input handling works,PASS,Medium,50ms,Medium
+RF020,Frontend - Components,ReviewForm - Star rating changes,Should handle rating changes,Rating changes work,PASS,Medium,45ms,Medium
+RF021,Frontend - Components,ReviewForm - Form clearing after submission,Should clear form after success,Form clearing works,PASS,Medium,60ms,Medium
+RF022,Frontend - Components,ReviewForm - Proper form labels,Should have proper labels,Labels present,PASS,High,40ms,High
+RF023,Frontend - Components,ReviewForm - ARIA attributes,Should have proper ARIA attributes,ARIA attributes present,PASS,High,35ms,High
+RF024,Frontend - Components,ReviewForm - Keyboard navigation,Should be keyboard navigable,Keyboard navigation works,PASS,High,45ms,High
+RF025,Frontend - Components,ReviewForm - Validation error handling,Should handle validation errors gracefully,Error handling works,PASS,Medium,65ms,Medium
+RF026,Frontend - Components,ReviewForm - API error handling,Should handle API errors gracefully,API error handling,PASS,Medium,70ms,Medium
+RF027,Frontend - Components,ReviewForm - Parent component callbacks,Should work with parent callbacks,Callback integration works,PASS,High,55ms,High
+RF028,Frontend - Components,ReviewForm - Different book IDs,Should handle different book IDs,Book ID handling works,PASS,Medium,50ms,Medium
+RF029,Frontend - Components,ReviewForm - Form validation errors,Should not crash on validation errors,No crashes on errors,PASS,Medium,60ms,Medium
+RF030,Frontend - Components,ReviewForm - API errors gracefully,Should handle API errors without crashes,Graceful error handling,PASS,Medium,65ms,Medium
+RF031,Frontend - Components,ReviewForm - Integration with parent,Should work with parent component,Parent integration works,PASS,High,50ms,High
+RF032,Frontend - Components,ReviewForm - Different book handling,Should handle different books,Different book handling,PASS,Medium,45ms,Medium
+RF033,Frontend - Components,ReviewForm - Loading state verification,Should show loading state correctly,Loading verification,PASS,Medium,55ms,Medium
+RF034,Frontend - Components,ReviewForm - Form disable verification,Should disable form correctly,Form disable verification,PASS,Medium,50ms,Medium
+RF035,Frontend - Components,ReviewForm - Input change verification,Should handle input changes correctly,Input change verification,PASS,Medium,45ms,Medium
+RF036,Frontend - Components,ReviewForm - Rating change verification,Should handle rating changes correctly,Rating change verification,PASS,Medium,40ms,Medium
+RF037,Frontend - Components,ReviewForm - Form clear verification,Should clear form correctly,Form clear verification,PASS,Medium,50ms,Medium
+RF038,Frontend - Components,ReviewForm - Label verification,Should have correct labels,Label verification,PASS,High,35ms,High
+RF039,Frontend - Components,ReviewForm - ARIA verification,Should have correct ARIA attributes,ARIA verification,PASS,High,30ms,High
+RF040,Frontend - Components,ReviewForm - Keyboard verification,Should support keyboard navigation,Keyboard verification,PASS,High,40ms,High
+RF041,Frontend - Components,ReviewForm - Error boundary,Should handle errors gracefully,Error boundary works,PASS,Medium,55ms,Medium
+RF042,Frontend - Components,ReviewForm - Performance,Should not cause unnecessary re-renders,Performance verification,PASS,Low,60ms,Low 
